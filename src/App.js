@@ -1,23 +1,44 @@
-import logo from './logo.svg';
+import React from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 import './App.css';
+import Home from "./components/Home"
+import Footer from "./components/Footer";
+import ZeroOne from "./components/ZeroOne";
+import Cricket from "./components/Cricket";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <div className="logo-container">
+          <div className="logo-lg">
+            <div className="logo-md">
+              <div className="logo-sm">
+                
+              </div>
+            </div>
+          </div>
+        
+          <span className="logo-name">Dart Scorer</span>
+        </div>
       </header>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+            <Route path="zeroone" element={<ZeroOne />} />
+            <Route path="cricket" element={<Cricket />} />
+          {/* </Route> */}
+        </Routes>
+      </BrowserRouter>
+
+      <Footer />
+
     </div>
   );
 }
